@@ -121,7 +121,7 @@ function SetInHTML(name, surname, age, id) {
     let NameList = document.createElement("tr");
     //<td id= "${name} ${surname}" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="${name} ${surname} : ${age} years">
     NameList.innerHTML = `
-   <td id= "${name}" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="${name} ${surname} : ${age} years">
+   </td><td id= "${name}${surname}" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="${name} ${surname} : ${age} years">
    
         ${name} 
     </td>    
@@ -153,8 +153,8 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         for (let i = 0; i < People.length; i++) {
             if (People[i].name == name && People[i].surname == surname) {
                 People.splice(i, 1);
-                id = "#" + name;
-                //id = "#"+name+" "+surname;
+                //id = "#" + name;
+                id = "#"+name+surname;
                 console.log(id);
                 let getchild = document.querySelectorAll(id);
                 getchild[0].parentElement.remove();
